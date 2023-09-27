@@ -1,0 +1,8 @@
+node('built-in') {
+    stage('Continuous download') {
+   git 'https://github.com/KranthiGajjelli/Maven.git'
+}
+ stage('Continuous deployment') {
+   sh 'scp /home/ubuntu/.jenkins/workspace/pipeline/webapp/target/webapp.war  ubuntu@10.0.0.5:/var/lib/tomcat8/webapps/qaenv.war'
+}
+}
